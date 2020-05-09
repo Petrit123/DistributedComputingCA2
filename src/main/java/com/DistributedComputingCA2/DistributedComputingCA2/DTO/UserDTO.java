@@ -1,10 +1,11 @@
 package com.DistributedComputingCA2.DistributedComputingCA2.DTO;
 
-import com.DistributedComputingCA2.DistributedComputingCA2.Entity.UserEntity;
+import com.DistributedComputingCA2.DistributedComputingCA2.Entity.User;
 
 public class UserDTO {
 	
 
+	int userId;
 	String username;
 	String password;
 	boolean isLoggedin;
@@ -13,16 +14,26 @@ public class UserDTO {
 		
 	}
 	
-	public UserDTO(String username, String password, boolean isLoggedin) {
+	public UserDTO(int userId, String username, String password, boolean isLoggedin) {
+		this.userId = userId;
 		this.username = username;
 		this.password = password;
 		this.isLoggedin = isLoggedin;
 	}	
 	
-	public UserDTO(UserEntity userEntity) {
+	public UserDTO(User userEntity) {
+		this.userId = userEntity.getUserId();
 		this.username = userEntity.getusername();
 		this.password = userEntity.getPassword();
 		this.isLoggedin = userEntity.isLoggedin();
+	}
+	
+	public int getUserId() {
+		return userId;
+	}
+	
+	public void setUserId(int userId) {
+		this.userId = userId;
 	}
 	
 	public String getUsername() {
