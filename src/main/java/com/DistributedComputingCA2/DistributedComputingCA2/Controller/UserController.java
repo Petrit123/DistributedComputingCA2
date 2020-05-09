@@ -18,7 +18,7 @@ public class UserController {
 	UserService userService;
 	
 	
-	@RequestMapping(method = RequestMethod.POST, produces="application/json", value="/user/login")
+	@RequestMapping(method = RequestMethod.POST, produces="application/json", value="/login")
 	@ResponseBody
 	public String login(@RequestBody ObjectNode objectNode) {
 		
@@ -28,11 +28,17 @@ public class UserController {
 		return userService.login(receivedUsername, receivedPassword);		
 	}
 	
-	@RequestMapping(method = RequestMethod.POST, produces="application/json", value="/user/logoff")
+	@RequestMapping(method = RequestMethod.POST, produces="application/json", value="/logoff")
 	@ResponseBody
 	public String logOff(@RequestBody ObjectNode objectNode) {
 		String receivedUsername = objectNode.get("username").asText();
 		return userService.logOff(receivedUsername);
+	}
+	
+	
+	@RequestMapping("/hello")
+	public String hello() {
+		return "Endpoint testing HTTPS";
 	}
 	
 
