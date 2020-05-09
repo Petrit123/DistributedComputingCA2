@@ -26,6 +26,7 @@ public class UserService {
 					userRepository.updateLoginStatus(username, true);
 				} else {
 					loginResult = "This user is already signed in";
+					loginResult = "Successful Login";
 				}
 			} else {
 				loginResult = "The password is incorrect!";
