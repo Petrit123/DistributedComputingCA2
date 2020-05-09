@@ -24,23 +24,18 @@ public class UserDAO {
 	@PersistenceContext
 	private EntityManager entityManager;
 	
-	public List<UserDTO> getAllUsers() {
-		List<User> retrievedUsers = entityManager.createQuery("SELECT e FROM User e", User.class).getResultList();	
-		
-		List<UserDTO> users = new ArrayList<>();
-		
-		for (User user : retrievedUsers) {
-			users.add(new UserDTO(user));
-		}
-		
-		return users;
-	}
-	
+
 	public UserDTO findUserByName(String username) {
+		
+		
+		UserDTO user = new UserDTO();
 		
 		List<User> foundUser = entityManager.createQuery("SELECT e FROM User e WHERE e.username = :username", User.class)
 				.setParameter("username", username).getResultList();
-		UserDTO	user = new UserDTO(foundUser.get(0));			
+		
+		if (!foundUser.isEmpty()) {
+			user = new UserDTO(foundUser.get(0));
+		}		
 		
 		
 		return user;

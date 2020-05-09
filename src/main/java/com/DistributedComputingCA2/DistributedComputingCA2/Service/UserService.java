@@ -17,24 +17,21 @@ public class UserService {
 		
 		String loginResult = "";
 		
-		for (UserDTO user : userRepository.getAllUsers()) {
-			
-			if (user.getUsername().equals(username)) {
-				System.out.print("Username is valid\n");
-				if (user.getPassword().equals(password)) {
-					System.out.print("username and password are correct");
-					if (!user.isLoggedin()) {
-						userRepository.updateLoginStatus(username, true);
-						loginResult = "Successful Login";
-					} else {
-						loginResult = "User is already signed in";
-					}
+		UserDTO user = userRepository.findUserByName(username);
+		if(user.getUsername() != null) {
+			System.out.print("username is valid");
+			if(user.getPassword().equals(password)) {
+				System.out.print("password is correct also!");
+				if (!user.isLoggedin()) {
+					userRepository.updateLoginStatus(username, true);
 				} else {
-					loginResult = "The password is incorrect";
+					loginResult = "This user is already signed in";
 				}
 			} else {
-				loginResult = "No such user with that username";
+				loginResult = "The password is incorrect!";
 			}
+		} else {
+			loginResult = "No such user with that username";
 		}
 		
 		return loginResult;
