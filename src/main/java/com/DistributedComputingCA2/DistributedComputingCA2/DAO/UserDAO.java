@@ -47,20 +47,10 @@ public class UserDAO {
 		return user;
 	}
 	
-	public void setLogInStatus() {
-		
+	public void updateLoginStatus(boolean isLoggedin) {
 		User user = entityManager.find(User.class,1);
-		user.setLoggedIn(true);
+		user.setLoggedIn(isLoggedin);
 		entityManager.persist(user);
-		 
-	}
-	
-	public void setLogUserOff() {
-		
-		User user = entityManager.find(User.class,1);
-		user.setLoggedIn(false);
-		entityManager.persist(user);
-		 
 	}
 	
 	public EntityManagerFactory getEntityManagerFactory() {
