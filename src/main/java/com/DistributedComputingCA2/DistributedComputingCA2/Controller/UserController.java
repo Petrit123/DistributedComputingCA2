@@ -29,9 +29,10 @@ public class UserController {
 	}
 	
 	@RequestMapping(method = RequestMethod.POST, produces="application/json", value="/user/logoff")
-	public String logOff() {
-		
-		return userService.logOff();
+	@ResponseBody
+	public String logOff(@RequestBody ObjectNode objectNode) {
+		String receivedUsername = objectNode.get("username").asText();
+		return userService.logOff(receivedUsername);
 	}
 	
 

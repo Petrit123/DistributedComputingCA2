@@ -21,7 +21,7 @@ public class DistributedComputingCa2Application {
 	
 	public void addCorsMappings(CorsRegistry registry) {
 		  registry.addMapping("/user/**")
-		   	  .allowedOrigins("https://localhost:5094", "http://localhost:8080/")
+		   	  .allowedOrigins("https://localhost:5094", "http://localhost:8080")
 			  .allowedMethods("POST", "GET",  "PUT", "OPTIONS", "DELETE")
 			  .allowedHeaders("X-Auth-Token", "Content-Type")
 			  .exposedHeaders("custom-header1", "custom-header2")

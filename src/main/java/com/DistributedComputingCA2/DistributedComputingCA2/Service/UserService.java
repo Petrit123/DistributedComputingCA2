@@ -24,7 +24,7 @@ public class UserService {
 				if (user.getPassword().equals(password)) {
 					System.out.print("username and password are correct");
 					if (!user.isLoggedin()) {
-						userRepository.updateLoginStatus(true);
+						userRepository.updateLoginStatus(username, true);
 						loginResult = "Successful Login";
 					} else {
 						loginResult = "User is already signed in";
@@ -41,9 +41,9 @@ public class UserService {
 	}
 	
 	
-	public String logOff() {
+	public String logOff(String username) {
 		
-		userRepository.updateLoginStatus(false);
+		userRepository.updateLoginStatus(username,false);
 		
 		return "Thanks for using my application! Goodbye";
 	}
