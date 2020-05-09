@@ -24,9 +24,9 @@ public class UserService {
 				System.out.print("password is correct also!");
 				if (!user.isLoggedin()) {
 					userRepository.updateLoginStatus(username, true);
+					loginResult = "Successful Login";
 				} else {
 					loginResult = "This user is already signed in";
-					loginResult = "Successful Login";
 				}
 			} else {
 				loginResult = "The password is incorrect!";
