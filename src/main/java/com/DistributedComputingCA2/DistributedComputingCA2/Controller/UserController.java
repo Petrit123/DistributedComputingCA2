@@ -11,7 +11,6 @@ import com.DistributedComputingCA2.DistributedComputingCA2.Service.UserService;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:8080")
 public class UserController {
 	
 	@Autowired

@@ -19,14 +19,14 @@ public class DistributedComputingCa2Application {
 		SpringApplication.run(DistributedComputingCa2Application.class, args);
 	}
 	
-	public void addCorsMappings(CorsRegistry registry) {
-		  registry.addMapping("/api/**")
-		   	  .allowedOrigins("https://localhost:5094", "http://localhost:8080")
-			  .allowedMethods("POST", "GET",  "PUT", "OPTIONS", "DELETE")
-			  .allowedHeaders("X-Auth-Token", "Content-Type")
-			  .exposedHeaders("custom-header1", "custom-header2")
-			  .allowCredentials(false)
-			  .maxAge(4800);
-		}
+//	public void addCorsMappings(CorsRegistry registry) {
+//		  registry.addMapping("/api/**")
+//		   	  .allowedOrigins("https://localhost:5094", "http://localhost:8080")
+//			  .allowedMethods("POST", "GET",  "PUT", "OPTIONS", "DELETE")
+//			  .allowedHeaders("X-Auth-Token", "Content-Type")
+//			  .exposedHeaders("custom-header1", "custom-header2")
+//			  .allowCredentials(false)
+//			  .maxAge(4800);
+//		}
 
 }
